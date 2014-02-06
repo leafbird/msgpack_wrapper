@@ -3,13 +3,112 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\msgpack\zone.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\zone.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\object.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\object.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\pack.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\pack_define.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\pack_template.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\sysdep.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\unpack.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\unpack_define.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\unpack_template.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\version.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\string.hpp">
+      <Filter>msgpack\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\tuple.hpp">
+      <Filter>msgpack\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\vector.hpp">
+      <Filter>msgpack\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\bool.hpp">
+      <Filter>msgpack\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\define.hpp">
+      <Filter>msgpack\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\deque.hpp">
+      <Filter>msgpack\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\fixint.hpp">
+      <Filter>msgpack\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\float.hpp">
+      <Filter>msgpack\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\int.hpp">
+      <Filter>msgpack\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\list.hpp">
+      <Filter>msgpack\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\map.hpp">
+      <Filter>msgpack\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\nil.hpp">
+      <Filter>msgpack\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\pair.hpp">
+      <Filter>msgpack\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\raw.hpp">
+      <Filter>msgpack\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\set.hpp">
+      <Filter>msgpack\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\tr1\unordered_map.hpp">
+      <Filter>msgpack\type\tr1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\msgpack\type\tr1\unordered_set.hpp">
+      <Filter>msgpack\type\tr1</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="..\msgpack\object.cpp">
+      <Filter>msgpack</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="msgpack">
-      <UniqueIdentifier>{88f362d0-2bca-457b-8f1e-401edb48d46a}</UniqueIdentifier>
+      <UniqueIdentifier>{a331dea2-58df-4f8d-b5db-e3589da91341}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="msgpack\type">
+      <UniqueIdentifier>{d3fb5cd1-9320-4642-8626-678933175847}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="msgpack\type\tr1">
+      <UniqueIdentifier>{81a260c7-c07c-490a-a8cf-05e6ff8801cb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
