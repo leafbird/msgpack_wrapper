@@ -4,6 +4,12 @@
     <Filter Include="src">
       <UniqueIdentifier>{5a052005-5f37-4bcb-a0ea-e21a996314f2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{0fa765d4-35e2-492e-a097-fbf434aad814}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\internal">
+      <UniqueIdentifier>{42f90907-9ce2-4bea-88d1-3af467a3d41c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\gtest-typed-test.cc">
@@ -30,6 +36,66 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\gtest-internal-inl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest_pred_impl.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest_prod.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest-death-test.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest-message.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest-param-test.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest-spi.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest-test-part.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest-typed-test.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\gtest-param-util-generated.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\gtest-port.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\gtest-string.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\gtest-tuple.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\gtest-type-util.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\gtest-death-test-internal.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\gtest-filepath.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\gtest-internal.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\gtest-linked_ptr.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\gtest-param-util.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest-printers.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
