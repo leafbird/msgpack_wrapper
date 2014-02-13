@@ -73,38 +73,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\msgpack\object.h" />
-    <ClInclude Include="..\msgpack\object.hpp" />
-    <ClInclude Include="..\msgpack\pack.hpp" />
-    <ClInclude Include="..\msgpack\pack_define.h" />
-    <ClInclude Include="..\msgpack\pack_template.h" />
-    <ClInclude Include="..\msgpack\sysdep.h" />
-    <ClInclude Include="..\msgpack\type.hpp" />
-    <ClInclude Include="..\msgpack\type\bool.hpp" />
-    <ClInclude Include="..\msgpack\type\define.hpp" />
-    <ClInclude Include="..\msgpack\type\deque.hpp" />
-    <ClInclude Include="..\msgpack\type\fixint.hpp" />
-    <ClInclude Include="..\msgpack\type\float.hpp" />
-    <ClInclude Include="..\msgpack\type\int.hpp" />
-    <ClInclude Include="..\msgpack\type\list.hpp" />
-    <ClInclude Include="..\msgpack\type\map.hpp" />
-    <ClInclude Include="..\msgpack\type\nil.hpp" />
-    <ClInclude Include="..\msgpack\type\pair.hpp" />
-    <ClInclude Include="..\msgpack\type\raw.hpp" />
-    <ClInclude Include="..\msgpack\type\set.hpp" />
-    <ClInclude Include="..\msgpack\type\string.hpp" />
-    <ClInclude Include="..\msgpack\type\tr1\unordered_map.hpp" />
-    <ClInclude Include="..\msgpack\type\tr1\unordered_set.hpp" />
-    <ClInclude Include="..\msgpack\type\tuple.hpp" />
-    <ClInclude Include="..\msgpack\type\vector.hpp" />
-    <ClInclude Include="..\msgpack\unpack.hpp" />
-    <ClInclude Include="..\msgpack\unpack_define.h" />
-    <ClInclude Include="..\msgpack\unpack_template.h" />
-    <ClInclude Include="..\msgpack\version.h" />
-    <ClInclude Include="..\msgpack\zone.h" />
-    <ClInclude Include="..\msgpack\zone.hpp" />
     <ClInclude Include="Buffer.h" />
-    <ClInclude Include="Helper.h" />
+    <ClInclude Include="interface.h" />
+    <ClInclude Include="Writer.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -114,7 +85,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Buffer.cpp" />
-    <ClCompile Include="Helper.cpp" />
+    <ClCompile Include="Writer.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>

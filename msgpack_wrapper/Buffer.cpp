@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Buffer.h"
+#include "Writer.h"
 
 class Buffer::Impl
 {
@@ -39,11 +40,25 @@ Buffer::Buffer(int reserve) : m_pImpl(new Impl(reserve))
 
 Buffer::~Buffer()
 {
-	delete m_pImpl;
-	m_pImpl = nullptr;
+	Delete(m_pImpl);
 }
 
 void Buffer::write(const char* buf, unsigned int len)
 {
 	m_pImpl->write(buf, len);
+}
+
+const Writer Buffer::Put()
+{
+	return Writer(this, 0, 0);
+}
+
+const Writer Buffer::PutArray(size_t size)
+{
+	return Writer(this, size, 0);
+}
+
+const Writer Buffer::PutMap(size_t size)
+{
+	return Writer(this, 0, size);
 }
