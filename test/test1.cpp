@@ -7,7 +7,7 @@ TEST(msgpack, primitive)
 
 	Buffer buffer;
 	buffer.Put() << src;
-	//buffer.Get() >> dst;
+	buffer.Get() >> dst;
 
 	EXPECT_EQ(src, dst);
 }

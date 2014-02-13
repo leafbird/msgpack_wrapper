@@ -56,7 +56,7 @@ const Writer& Writer::PutMap(size_t size) const
 }
 
 
-const Writer& Writer::operator<<(int& data) const
+const Writer& Writer::operator<<(const int& data) const
 {
 	impl_->packer_ << data;
 	return *this;

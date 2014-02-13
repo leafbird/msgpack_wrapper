@@ -16,6 +16,12 @@
     </ClCompile>
     <ClCompile Include="Writer.cpp" />
     <ClCompile Include="Reader.cpp" />
+    <ClCompile Include="..\msgpack\zone.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\msgpack\unpack.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">

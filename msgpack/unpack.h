@@ -101,7 +101,7 @@ void msgpack_unpacker_free(msgpack_unpacker* mpac);
  * msgpack_unpacker_buffer_capacity(const msgpack_unpacker*) and
  * msgpack_unpacker_buffer_consumed(msgpack_unpacker*).
  */
-static inline bool   msgpack_unpacker_reserve_buffer(msgpack_unpacker* mpac, size_t size);
+static __inline bool   msgpack_unpacker_reserve_buffer(msgpack_unpacker* mpac, size_t size);
 
 /**
  * Gets pointer to the free space of the internal buffer.
@@ -110,7 +110,7 @@ static inline bool   msgpack_unpacker_reserve_buffer(msgpack_unpacker* mpac, siz
  * msgpack_unpacker_buffer_capacity(const msgpack_unpacker*) and
  * msgpack_unpacker_buffer_consumed(msgpack_unpacker*).
  */
-static inline char*  msgpack_unpacker_buffer(msgpack_unpacker* mpac);
+static __inline char*  msgpack_unpacker_buffer(msgpack_unpacker* mpac);
 
 /**
  * Gets size of the free space of the internal buffer.
@@ -119,7 +119,7 @@ static inline char*  msgpack_unpacker_buffer(msgpack_unpacker* mpac);
  * msgpack_unpacker_buffer(const msgpack_unpacker*) and
  * msgpack_unpacker_buffer_consumed(msgpack_unpacker*).
  */
-static inline size_t msgpack_unpacker_buffer_capacity(const msgpack_unpacker* mpac);
+static __inline size_t msgpack_unpacker_buffer_capacity(const msgpack_unpacker* mpac);
 
 /**
  * Notifies the deserializer that the internal buffer filled.
@@ -128,7 +128,7 @@ static inline size_t msgpack_unpacker_buffer_capacity(const msgpack_unpacker* mp
  * msgpack_unpacker_buffer(msgpack_unpacker*) and
  * msgpack_unpacker_buffer_capacity(const msgpack_unpacker*).
  */
-static inline void   msgpack_unpacker_buffer_consumed(msgpack_unpacker* mpac, size_t size);
+static __inline void   msgpack_unpacker_buffer_consumed(msgpack_unpacker* mpac, size_t size);
 
 
 /**
@@ -144,18 +144,18 @@ bool msgpack_unpacker_next(msgpack_unpacker* mpac, msgpack_unpacked* pac);
  * Use the object with msgpack_unpacker_next(msgpack_unpacker*, msgpack_unpacked*) or
  * msgpack_unpack_next(msgpack_unpacked*, const char*, size_t, size_t*).
  */
-static inline void msgpack_unpacked_init(msgpack_unpacked* result);
+static __inline void msgpack_unpacked_init(msgpack_unpacked* result);
 
 /**
  * Destroys a streaming deserializer initialized by msgpack_unpacked().
  */
-static inline void msgpack_unpacked_destroy(msgpack_unpacked* result);
+static __inline void msgpack_unpacked_destroy(msgpack_unpacked* result);
 
 /**
  * Releases the memory zone from msgpack_unpacked object.
  * The released zone must be freed by msgpack_zone_free(msgpack_zone*).
  */
-static inline msgpack_zone* msgpack_unpacked_release_zone(msgpack_unpacked* result);
+static __inline msgpack_zone* msgpack_unpacked_release_zone(msgpack_unpacked* result);
 
 
 int msgpack_unpacker_execute(msgpack_unpacker* mpac);
@@ -168,7 +168,7 @@ void msgpack_unpacker_reset_zone(msgpack_unpacker* mpac);
 
 void msgpack_unpacker_reset(msgpack_unpacker* mpac);
 
-static inline size_t msgpack_unpacker_message_size(const msgpack_unpacker* mpac);
+static __inline size_t msgpack_unpacker_message_size(const msgpack_unpacker* mpac);
 
 
 /** @} */
@@ -188,51 +188,51 @@ msgpack_unpack(const char* data, size_t len, size_t* off,
 		msgpack_zone* result_zone, msgpack_object* result);
 
 
-static inline size_t msgpack_unpacker_parsed_size(const msgpack_unpacker* mpac);
+static __inline size_t msgpack_unpacker_parsed_size(const msgpack_unpacker* mpac);
 
 bool msgpack_unpacker_flush_zone(msgpack_unpacker* mpac);
 
 bool msgpack_unpacker_expand_buffer(msgpack_unpacker* mpac, size_t size);
 
-static inline bool msgpack_unpacker_reserve_buffer(msgpack_unpacker* mpac, size_t size)
+static __inline bool msgpack_unpacker_reserve_buffer(msgpack_unpacker* mpac, size_t size)
 {
 	if(mpac->free >= size) { return true; }
 	return msgpack_unpacker_expand_buffer(mpac, size);
 }
 
-static inline char* msgpack_unpacker_buffer(msgpack_unpacker* mpac)
+static __inline char* msgpack_unpacker_buffer(msgpack_unpacker* mpac)
 {
 	return mpac->buffer + mpac->used;
 }
 
-static inline size_t msgpack_unpacker_buffer_capacity(const msgpack_unpacker* mpac)
+static __inline size_t msgpack_unpacker_buffer_capacity(const msgpack_unpacker* mpac)
 {
 	return mpac->free;
 }
 
-static inline void msgpack_unpacker_buffer_consumed(msgpack_unpacker* mpac, size_t size)
+static __inline void msgpack_unpacker_buffer_consumed(msgpack_unpacker* mpac, size_t size)
 {
 	mpac->used += size;
 	mpac->free -= size;
 }
 
-static inline size_t msgpack_unpacker_message_size(const msgpack_unpacker* mpac)
+static __inline size_t msgpack_unpacker_message_size(const msgpack_unpacker* mpac)
 {
 	return mpac->parsed - mpac->off + mpac->used;
 }
 
-static inline size_t msgpack_unpacker_parsed_size(const msgpack_unpacker* mpac)
+static __inline size_t msgpack_unpacker_parsed_size(const msgpack_unpacker* mpac)
 {
 	return mpac->parsed;
 }
 
 
-static inline void msgpack_unpacked_init(msgpack_unpacked* result)
+static __inline void msgpack_unpacked_init(msgpack_unpacked* result)
 {
 	memset(result, 0, sizeof(msgpack_unpacked));
 }
 
-static inline void msgpack_unpacked_destroy(msgpack_unpacked* result)
+static __inline void msgpack_unpacked_destroy(msgpack_unpacked* result)
 {
 	if(result->zone != NULL) {
 		msgpack_zone_free(result->zone);
@@ -241,7 +241,7 @@ static inline void msgpack_unpacked_destroy(msgpack_unpacked* result)
 	}
 }
 
-static inline msgpack_zone* msgpack_unpacked_release_zone(msgpack_unpacked* result)
+static __inline msgpack_zone* msgpack_unpacked_release_zone(msgpack_unpacked* result)
 {
 	if(result->zone != NULL) {
 		msgpack_zone* z = result->zone;

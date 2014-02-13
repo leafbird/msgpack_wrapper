@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Buffer.h"
 #include "Writer.h"
+#include "Reader.h"
 
 class Buffer::Impl : public NonCopyable
 {
@@ -58,4 +59,19 @@ const Writer Buffer::PutArray(size_t size)
 const Writer Buffer::PutMap(size_t size)
 {
 	return Writer(this, 0, size);
+}
+
+const Reader Buffer::Get() const
+{
+	return Reader(*this);
+}
+
+const char* Buffer::ptr() const
+{
+	return &impl_->vecData_[0];
+}
+
+size_t Buffer::size() const
+{
+	return impl_->vecData_.size();
 }
