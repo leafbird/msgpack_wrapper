@@ -24,7 +24,7 @@ struct msgpack_zone_chunk {
 	/* data ... */
 };
 
-static __inline bool init_chunk_list(msgpack_zone_chunk_list* cl, size_t chunk_size)
+static inline bool init_chunk_list(msgpack_zone_chunk_list* cl, size_t chunk_size)
 {
 	msgpack_zone_chunk* chunk = (msgpack_zone_chunk*)malloc(
 			sizeof(msgpack_zone_chunk) + chunk_size);
@@ -40,7 +40,7 @@ static __inline bool init_chunk_list(msgpack_zone_chunk_list* cl, size_t chunk_s
 	return true;
 }
 
-static __inline void destroy_chunk_list(msgpack_zone_chunk_list* cl)
+static inline void destroy_chunk_list(msgpack_zone_chunk_list* cl)
 {
 	msgpack_zone_chunk* c = cl->head;
 	while(true) {
@@ -54,7 +54,7 @@ static __inline void destroy_chunk_list(msgpack_zone_chunk_list* cl)
 	}
 }
 
-static __inline void clear_chunk_list(msgpack_zone_chunk_list* cl, size_t chunk_size)
+static inline void clear_chunk_list(msgpack_zone_chunk_list* cl, size_t chunk_size)
 {
 	msgpack_zone_chunk* c = cl->head;
 	while(true) {
@@ -96,14 +96,14 @@ void* msgpack_zone_malloc_expand(msgpack_zone* zone, size_t size)
 }
 
 
-static __inline void init_finalizer_array(msgpack_zone_finalizer_array* fa)
+static inline void init_finalizer_array(msgpack_zone_finalizer_array* fa)
 {
 	fa->tail  = NULL;
 	fa->end   = NULL;
 	fa->array = NULL;
 }
 
-static __inline void call_finalizer_array(msgpack_zone_finalizer_array* fa)
+static inline void call_finalizer_array(msgpack_zone_finalizer_array* fa)
 {
 	msgpack_zone_finalizer* fin = fa->tail;
 	for(; fin != fa->array; --fin) {
@@ -111,13 +111,13 @@ static __inline void call_finalizer_array(msgpack_zone_finalizer_array* fa)
 	}
 }
 
-static __inline void destroy_finalizer_array(msgpack_zone_finalizer_array* fa)
+static inline void destroy_finalizer_array(msgpack_zone_finalizer_array* fa)
 {
 	call_finalizer_array(fa);
 	free(fa->array);
 }
 
-static __inline void clear_finalizer_array(msgpack_zone_finalizer_array* fa)
+static inline void clear_finalizer_array(msgpack_zone_finalizer_array* fa)
 {
 	call_finalizer_array(fa);
 	fa->tail = fa->array;
