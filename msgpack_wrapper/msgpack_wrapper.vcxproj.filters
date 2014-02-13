@@ -6,6 +6,7 @@
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="Writer.h" />
     <ClInclude Include="interface.h" />
+    <ClInclude Include="Reader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -14,6 +15,7 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="Writer.cpp" />
+    <ClCompile Include="Reader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">

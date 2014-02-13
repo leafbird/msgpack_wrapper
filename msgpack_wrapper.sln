@@ -11,6 +11,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "test\test.vcxproj",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Util", "Util", "{25C8A857-F69B-4C86-9472-DCD95F494733}"
 	ProjectSection(SolutionItems) = preProject
+		Util\NonCopyable.h = Util\NonCopyable.h
 		Util\Util.h = Util\Util.h
 	EndProjectSection
 EndProject

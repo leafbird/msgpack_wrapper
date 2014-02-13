@@ -18,3 +18,5 @@
 #pragma warning(disable:4267)
 #include "msgpack.hpp"
 #pragma warning(pop)
+
+#include "Util/NonCopyable.h"

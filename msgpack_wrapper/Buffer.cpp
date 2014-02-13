@@ -2,13 +2,10 @@
 #include "Buffer.h"
 #include "Writer.h"
 
-class Buffer::Impl
+class Buffer::Impl : public NonCopyable
 {
 public:
 	Impl(int reserve);
-
-	Impl(const Impl&) = delete;
-	void operator=(const Impl&) = delete;
 
 	void write(const char* buf, unsigned int len);
 
@@ -33,19 +30,19 @@ void Buffer::Impl::write(const char* buf, unsigned int len)
 
 // --------------------------------------------------------
 
-Buffer::Buffer(int reserve) : m_pImpl(new Impl(reserve))
+Buffer::Buffer(int reserve) : impl_(new Impl(reserve))
 {
 }
 
 
 Buffer::~Buffer()
 {
-	Delete(m_pImpl);
+	Delete(impl_);
 }
 
 void Buffer::write(const char* buf, unsigned int len)
 {
-	m_pImpl->write(buf, len);
+	impl_->write(buf, len);
 }
 
 const Writer Buffer::Put()

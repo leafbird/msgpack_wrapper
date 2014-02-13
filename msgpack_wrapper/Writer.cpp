@@ -2,7 +2,7 @@
 #include "Writer.h"
 #include "Buffer.h"
 
-class Writer::Impl
+class Writer::Impl : public NonCopyable
 {
 public:
 	Impl(Buffer* parent);
@@ -40,8 +40,7 @@ Writer::Writer(Writer&& rhs) : impl_(rhs.impl_)
 
 Writer::~Writer()
 {
-	delete impl_;
-	impl_ = nullptr;
+	Delete(impl_);
 }
 
 const Writer& Writer::PutArray(size_t size) const

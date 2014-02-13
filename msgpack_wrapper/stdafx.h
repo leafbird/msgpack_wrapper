@@ -21,3 +21,4 @@
 #pragma warning(pop)
 
 #include "Util/Util.h"
+#include "Util/NonCopyable.h"
