@@ -2,6 +2,7 @@
 #include "Buffer.h"
 #include "Writer.h"
 #include "Reader.h"
+#include "ArrayReader.h"
 
 class Buffer::Impl : public NonCopyable
 {
@@ -61,10 +62,16 @@ const Writer Buffer::PutMap(size_t size)
 	return Writer(this, 0, size);
 }
 
-const Reader Buffer::Get() const
+Reader Buffer::Get() const
 {
 	return Reader(*this);
 }
+
+ArrayReader Buffer::GetArray() const
+{
+	return Get().GetArray();
+}
+
 
 const char* Buffer::ptr() const
 {

@@ -7,6 +7,7 @@
     <ClInclude Include="Writer.h" />
     <ClInclude Include="interface.h" />
     <ClInclude Include="Reader.h" />
+    <ClInclude Include="ArrayReader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -22,6 +23,7 @@
     <ClCompile Include="..\msgpack\zone.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="ArrayReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">

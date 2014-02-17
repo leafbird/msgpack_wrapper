@@ -2,6 +2,7 @@
 
 class Writer;
 class Reader;
+class ArrayReader;
 
 class Buffer : public NonCopyable
 {
@@ -15,7 +16,8 @@ public:
 	const Writer PutArray(size_t size);
 	const Writer PutMap(size_t size);
 
-	const Reader Get() const;
+	Reader Get() const;
+	ArrayReader GetArray() const;
 
 	const char* ptr() const;
 	size_t size() const;

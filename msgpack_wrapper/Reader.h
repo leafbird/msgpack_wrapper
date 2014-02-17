@@ -1,22 +1,28 @@
 #pragma once
 
 class Buffer;
+class ArrayReader;
 
 class Reader : public NonCopyable
 {
 public:
+	Reader();
 	Reader(const Buffer& buffer);
 	Reader(Reader&& rhs);
 	virtual ~Reader();
 
 	template <typename T>
-	const Reader& operator>>(T& data)
+	Reader& operator>>(T& data)
 	{
 		Get(*this, data);
 		return *this;
 	}
 
-	const Reader& operator>>(int& data) const;
+	Reader& operator>>(int& data);
+
+	void set_object(const msgpack::object& object);
+
+	ArrayReader GetArray();
 
 private:
 	class Impl;

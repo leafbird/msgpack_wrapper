@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Reader.h"
 #include "Buffer.h"
+#include "ArrayReader.h"
 
 class Reader::Impl : public NonCopyable 
 {
@@ -17,6 +18,8 @@ public:
 		object_ >> data;
 		ReadyNext();
 	}
+
+	ArrayReader GetArray();
 
 public:
 	bool enable_;
@@ -52,8 +55,17 @@ void Reader::Impl::ReadyNext()
 	enable_ = true;
 }
 
+ArrayReader Reader::Impl::GetArray()
+{
+	return ArrayReader(object_, mempool_.release());
+}
 
 // --------------------------------------------------------
+
+Reader::Reader() : impl_(new Impl)
+{
+
+}
 
 Reader::Reader(const Buffer& buffer) : impl_(new Impl)
 {
@@ -71,9 +83,19 @@ Reader::~Reader()
 	Delete(impl_);
 }
 
+void Reader::set_object(const msgpack::object& object)
+{
+	impl_->object_ = object;
+	impl_->enable_ = true;
+}
 
-const Reader& Reader::operator>>(int& data) const
+Reader& Reader::operator>>(int& data)
 {
 	impl_->Get(data);
 	return *this;
+}
+
+ArrayReader Reader::GetArray()
+{
+	return impl_->GetArray();
 }
