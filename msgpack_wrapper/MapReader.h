@@ -14,8 +14,19 @@ public:
 		return *this;
 	}
 
+	template <typename Key, typename Value>
+	MapReader& GetPair(int index, Key& key, Value& value) {
+		ReadyKey(index) >> key;
+		ReadyValue(index) >> value;
+		return *this;
+	}
+
+	size_t size() const;
+
 private:
 	Reader& Ready(const std::string& key);
+	Reader& ReadyKey(int index);
+	Reader& ReadyValue(int index);
 
 	class Impl;
 	Impl* impl_;

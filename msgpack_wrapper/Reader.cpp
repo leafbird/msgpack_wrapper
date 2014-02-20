@@ -106,12 +106,6 @@ void Reader::set_object(const msgpack::object& object)
 	impl_->enable_ = true;
 }
 
-Reader& Reader::operator>>(int& data)
-{
-	impl_->Get(data);
-	return *this;
-}
-
 ArrayReader Reader::GetArray()
 {
 	return impl_->GetArray();
@@ -125,4 +119,22 @@ MapReader Reader::GetMap()
 bool Reader::HasData() const
 {
 	return impl_->enable_;
+}
+
+Reader& Reader::operator>>(int& data)
+{
+	impl_->Get(data);
+	return *this;
+}
+
+Reader& Reader::operator>>(int64_t& data)
+{
+	impl_->Get(data);
+	return *this;
+}
+
+Reader& Reader::operator>>(std::string& data)
+{
+	impl_->Get(data);
+	return *this;
 }

@@ -26,6 +26,7 @@ public:
 	}
 
 	Writer& operator<<(const int& data);
+	Writer& operator<<(const int64_t& data);
 	Writer& operator<<(const std::string& data);
 	Writer& operator<<(const char* data);
 

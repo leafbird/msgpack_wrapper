@@ -7,6 +7,9 @@ public:
 	Impl(msgpack::object object, msgpack::zone* zone);
 
 	Reader& Ready(const std::string& key);
+	Reader& ReadyKey(int index);
+	Reader& ReadyValue(int index);
+
 public:
 	msgpack::object object_;
 	std::unique_ptr<msgpack::zone> mempool_;
@@ -38,6 +41,8 @@ Reader& MapReader::Impl::Ready(const std::string& key)
 	return reader_;
 }
 
+Reader& ReadyKey(int index);
+Reader& ReadyValue(int index);
 
 // ------------------------------------------------------------------------------
 
@@ -55,4 +60,19 @@ MapReader::~MapReader()
 Reader& MapReader::Ready(const std::string& key)
 {
 	return impl_->Ready(key);
+}
+
+size_t MapReader::size() const
+{
+	return impl_->object_.via.map.size;
+}
+
+Reader& MapReader::ReadyKey(int index)
+{
+	return impl_->ReadyKey(index);
+}
+
+Reader& MapReader::ReadyValue(int index)
+{
+	return impl_->ReadyValue(index);
 }

@@ -62,6 +62,12 @@ Writer& Writer::operator<<(const int& data)
 	return *this;
 }
 
+Writer& Writer::operator<<(const int64_t& data)
+{
+	impl_->packer_ << data;
+	return *this;
+}
+
 Writer& Writer::operator<<(const std::string& data)
 {
 	impl_->packer_ << data;

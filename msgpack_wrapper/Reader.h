@@ -21,6 +21,8 @@ public:
 	}
 
 	Reader& operator>>(int& data);
+	Reader& operator>>(int64_t& data);
+	Reader& operator>>(std::string& data);
 
 	void set_object(const msgpack::object& object);
 	bool HasData() const;

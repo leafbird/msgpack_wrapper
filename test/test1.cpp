@@ -104,3 +104,17 @@ TEST(msgpack, primitive_stl_vector)
 	buffer.Get() >> dst;
 	EXPECT_EQ(src, dst);
 }
+
+TEST(msgpack, primitive_stl_map)
+{
+	std::map<std::string, int64_t> src, dst;
+	src.insert(std::make_pair("aa", 10LL));
+	src.insert(std::make_pair("ab", 20LL));
+	src.insert(std::make_pair("ac", 30LL));
+
+	EXPECT_NE(src, dst);
+	Buffer buffer;
+	buffer.Put() << src;
+	buffer.Get() >> dst;
+	EXPECT_EQ(src, dst);
+}
