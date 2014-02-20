@@ -9,7 +9,7 @@ class Reader::Impl : public NonCopyable
 public:
 	Impl();
 
-	void Init(const Buffer& buffer);
+	void Init(const char* ptr, size_t size);
 	void ReadyNext();
 
 	template <typename T>
@@ -34,14 +34,11 @@ Reader::Impl::Impl() : enable_(false)
 {
 }
 
-void Reader::Impl::Init(const Buffer& buffer)
+void Reader::Impl::Init(const char* ptr, size_t size)
 {
-	if (buffer.empty())
-		return;
-
-	unpacker_.reserve_buffer(buffer.size());
-	::memcpy(unpacker_.buffer(), buffer.ptr(), buffer.size());
-	unpacker_.buffer_consumed(buffer.size());
+	unpacker_.reserve_buffer(size);
+	::memcpy(unpacker_.buffer(), ptr, size);
+	unpacker_.buffer_consumed(size);
 
 	ReadyNext();
 }
@@ -77,16 +74,26 @@ Reader::Reader() : impl_(new Impl)
 
 }
 
-Reader::Reader(const Buffer& buffer) : impl_(new Impl)
+Reader::Reader(const Buffer& buffer) : Reader()
 {
-	impl_->Init(buffer);
+	if (buffer.empty())
+		return;
+
+	impl_->Init(buffer.ptr(), buffer.size());
+}
+
+Reader::Reader(const char* ptr, size_t size) : Reader()
+{
+	if (ptr == nullptr || size == 0)
+		return;
+
+	impl_->Init(ptr, size);
 }
 
 Reader::Reader(Reader&& rhs) : impl_(rhs.impl_)
 {
 	rhs.impl_ = nullptr;
 }
-
 
 Reader::~Reader()
 {

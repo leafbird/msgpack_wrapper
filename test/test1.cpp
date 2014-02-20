@@ -16,6 +16,18 @@ TEST(msgpack, empty)
 	}
 }
 
+TEST(msgpack, reader_indirect_buffer)
+{
+	{
+		Reader reader(nullptr, 100);
+		EXPECT_FALSE(reader.HasData());
+	}
+	{
+		Reader reader("NEVER use it like this.", 0);
+		EXPECT_FALSE(reader.HasData());
+	}
+}
+
 TEST(msgpack, primitive)
 {
 	int src = 20, dst = 0;

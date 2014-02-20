@@ -9,6 +9,7 @@ class Reader : public NonCopyable
 public:
 	Reader();
 	Reader(const Buffer& buffer);
+	Reader(const char* ptr, size_t size);
 	Reader(Reader&& rhs);
 	virtual ~Reader();
 
