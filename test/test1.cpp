@@ -90,3 +90,17 @@ TEST(msgpack, primitive_map)
 		EXPECT_EQ(src[i], dst[i]);
 	}
 }
+
+TEST(msgpack, primitive_stl_vector)
+{
+	std::vector<int> src, dst;
+	src.push_back(10);
+	src.push_back(20);
+	src.push_back(30);
+
+	EXPECT_NE(src, dst);
+	Buffer buffer;
+	buffer.Put() << src;
+	buffer.Get() >> dst;
+	EXPECT_EQ(src, dst);
+}

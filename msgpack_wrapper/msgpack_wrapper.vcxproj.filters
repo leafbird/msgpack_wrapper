@@ -9,6 +9,7 @@
     <ClInclude Include="Reader.h" />
     <ClInclude Include="ArrayReader.h" />
     <ClInclude Include="MapReader.h" />
+    <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />

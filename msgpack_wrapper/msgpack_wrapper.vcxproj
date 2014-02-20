@@ -78,6 +78,7 @@
     <ClInclude Include="interface.h" />
     <ClInclude Include="MapReader.h" />
     <ClInclude Include="Reader.h" />
+    <ClInclude Include="Vector.h" />
     <ClInclude Include="Writer.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
