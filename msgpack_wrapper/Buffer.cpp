@@ -3,6 +3,7 @@
 #include "Writer.h"
 #include "Reader.h"
 #include "ArrayReader.h"
+#include "MapReader.h"
 
 class Buffer::Impl : public NonCopyable
 {
@@ -47,17 +48,17 @@ void Buffer::write(const char* buf, unsigned int len)
 	impl_->write(buf, len);
 }
 
-const Writer Buffer::Put()
+Writer Buffer::Put()
 {
 	return Writer(this, 0, 0);
 }
 
-const Writer Buffer::PutArray(size_t size)
+Writer Buffer::PutArray(size_t size)
 {
 	return Writer(this, size, 0);
 }
 
-const Writer Buffer::PutMap(size_t size)
+Writer Buffer::PutMap(size_t size)
 {
 	return Writer(this, 0, size);
 }
@@ -72,6 +73,11 @@ ArrayReader Buffer::GetArray() const
 	return Get().GetArray();
 }
 
+MapReader Buffer::GetMap() const
+{
+	return Get().GetMap();
+}
+
 
 const char* Buffer::ptr() const
 {
@@ -81,4 +87,9 @@ const char* Buffer::ptr() const
 size_t Buffer::size() const
 {
 	return impl_->vecData_.size();
+}
+
+bool Buffer::empty() const
+{
+	return impl_->vecData_.empty();
 }

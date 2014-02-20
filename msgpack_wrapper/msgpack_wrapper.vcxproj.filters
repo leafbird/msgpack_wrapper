@@ -8,6 +8,7 @@
     <ClInclude Include="interface.h" />
     <ClInclude Include="Reader.h" />
     <ClInclude Include="ArrayReader.h" />
+    <ClInclude Include="MapReader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -24,6 +25,7 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="ArrayReader.cpp" />
+    <ClCompile Include="MapReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">

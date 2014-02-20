@@ -2,7 +2,7 @@
 
 class Reader;
 
-class ArrayReader
+class ArrayReader : public NonCopyable
 {
 public:
 	ArrayReader(msgpack::object object, msgpack::zone* zone);

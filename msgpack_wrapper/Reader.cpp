@@ -2,6 +2,7 @@
 #include "Reader.h"
 #include "Buffer.h"
 #include "ArrayReader.h"
+#include "MapReader.h"
 
 class Reader::Impl : public NonCopyable 
 {
@@ -20,6 +21,7 @@ public:
 	}
 
 	ArrayReader GetArray();
+	MapReader GetMap();
 
 public:
 	bool enable_;
@@ -34,6 +36,9 @@ Reader::Impl::Impl() : enable_(false)
 
 void Reader::Impl::Init(const Buffer& buffer)
 {
+	if (buffer.empty())
+		return;
+
 	unpacker_.reserve_buffer(buffer.size());
 	::memcpy(unpacker_.buffer(), buffer.ptr(), buffer.size());
 	unpacker_.buffer_consumed(buffer.size());
@@ -58,6 +63,11 @@ void Reader::Impl::ReadyNext()
 ArrayReader Reader::Impl::GetArray()
 {
 	return ArrayReader(object_, mempool_.release());
+}
+
+MapReader Reader::Impl::GetMap()
+{
+	return MapReader(object_, mempool_.release());
 }
 
 // --------------------------------------------------------
@@ -98,4 +108,14 @@ Reader& Reader::operator>>(int& data)
 ArrayReader Reader::GetArray()
 {
 	return impl_->GetArray();
+}
+
+MapReader Reader::GetMap()
+{
+	return impl_->GetMap();
+}
+
+bool Reader::HasData() const
+{
+	return impl_->enable_;
 }

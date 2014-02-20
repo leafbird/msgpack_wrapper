@@ -43,21 +43,33 @@ Writer::~Writer()
 	Delete(impl_);
 }
 
-const Writer& Writer::PutArray(size_t size) const
+Writer& Writer::PutArray(size_t size)
 {
 	impl_->packer_.pack_array(size);
 	return *this;
 }
 
-const Writer& Writer::PutMap(size_t size) const
+Writer& Writer::PutMap(size_t size)
 {
 	impl_->packer_.pack_map(size);
 	return *this;
 }
 
 
-const Writer& Writer::operator<<(const int& data) const
+Writer& Writer::operator<<(const int& data)
 {
 	impl_->packer_ << data;
 	return *this;
 }
+
+Writer& Writer::operator<<(const std::string& data)
+{
+	impl_->packer_ << data;
+	return *this;
+}
+
+Writer& Writer::operator<<(const char* data)
+{
+	return operator<<(std::string(data));
+}
+

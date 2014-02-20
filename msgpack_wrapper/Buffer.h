@@ -3,6 +3,7 @@
 class Writer;
 class Reader;
 class ArrayReader;
+class MapReader;
 
 class Buffer : public NonCopyable
 {
@@ -12,15 +13,17 @@ public:
 
 	void write(const char* buf, unsigned int len);
 
-	const Writer Put();
-	const Writer PutArray(size_t size);
-	const Writer PutMap(size_t size);
+	Writer Put();
+	Writer PutArray(size_t size);
+	Writer PutMap(size_t size);
 
 	Reader Get() const;
 	ArrayReader GetArray() const;
+	MapReader GetMap() const;
 
 	const char* ptr() const;
 	size_t size() const;
+	bool empty() const;
 
 private:
 	class Impl;

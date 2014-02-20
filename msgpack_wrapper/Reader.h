@@ -2,6 +2,7 @@
 
 class Buffer;
 class ArrayReader;
+class MapReader;
 
 class Reader : public NonCopyable
 {
@@ -21,8 +22,10 @@ public:
 	Reader& operator>>(int& data);
 
 	void set_object(const msgpack::object& object);
+	bool HasData() const;
 
 	ArrayReader GetArray();
+	MapReader GetMap();
 
 private:
 	class Impl;

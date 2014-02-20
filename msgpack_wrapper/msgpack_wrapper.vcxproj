@@ -76,6 +76,7 @@
     <ClInclude Include="ArrayReader.h" />
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="interface.h" />
+    <ClInclude Include="MapReader.h" />
     <ClInclude Include="Reader.h" />
     <ClInclude Include="Writer.h" />
     <ClInclude Include="stdafx.h" />
@@ -96,6 +97,7 @@
     </ClCompile>
     <ClCompile Include="ArrayReader.cpp" />
     <ClCompile Include="Buffer.cpp" />
+    <ClCompile Include="MapReader.cpp" />
     <ClCompile Include="Reader.cpp" />
     <ClCompile Include="Writer.cpp" />
     <ClCompile Include="stdafx.cpp">

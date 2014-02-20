@@ -9,17 +9,25 @@ public:
 	Writer(Writer&& rhs);
 	virtual ~Writer();
 
-	const Writer& PutArray(size_t size) const;
-	const Writer& PutMap(size_t size) const;
+	Writer& PutArray(size_t size);
+	Writer& PutMap(size_t size);
 
 	template <typename T>
-	const Writer& operator<<(const T& data) const
+	Writer& operator<<(const T& data)
 	{
 		Put(*this, data);
 		return *this;
 	}
 
-	const Writer& operator<<(const int& data) const;
+	template <typename Key, typename Value>
+	Writer& PutPair(const Key& key, const Value& value)
+	{
+		return (*this) << key << value;
+	}
+
+	Writer& operator<<(const int& data);
+	Writer& operator<<(const std::string& data);
+	Writer& operator<<(const char* data);
 
 private:
 	class Impl;
