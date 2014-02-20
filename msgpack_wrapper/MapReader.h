@@ -1,5 +1,7 @@
 #pragma once
 
+class Reader;
+
 class MapReader : public NonCopyable
 {
 public:
@@ -8,10 +10,13 @@ public:
 
 	template <typename T>
 	MapReader& GetPair(const std::string& key, T& data) {
+		Ready(key) >> data;
 		return *this;
 	}
 
 private:
+	Reader& Ready(const std::string& key);
+
 	class Impl;
 	Impl* impl_;
 };

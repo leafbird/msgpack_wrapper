@@ -20,7 +20,7 @@ public:
 ArrayReader::Impl::Impl(msgpack::object object, msgpack::zone* zone)
 : object_(object), mempool_(zone), index_(0)
 {
-
+	assert(object_.type == msgpack::type::ARRAY);
 }
 
 Reader& ArrayReader::Impl::ReadyNext()
