@@ -23,6 +23,9 @@ public:
 	}
 
 	Reader& operator>>(int& data);
+	Reader& operator>>(float& data);
+	Reader& operator>>(short& data);
+	Reader& operator>>(unsigned int& data);
 	Reader& operator>>(int64_t& data);
 	Reader& operator>>(std::string& data);
 

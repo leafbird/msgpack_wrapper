@@ -129,6 +129,24 @@ Reader& Reader::operator>>(int& data)
 	return *this;
 }
 
+Reader& Reader::operator>>(float& data)
+{
+	impl_->Get(data);
+	return *this;
+}
+
+Reader& Reader::operator>>(short& data)
+{
+	impl_->Get(data);
+	return *this;
+}
+
+Reader& Reader::operator>>(unsigned int& data)
+{
+	impl_->Get(data);
+	return *this;
+}
+
 Reader& Reader::operator>>(int64_t& data)
 {
 	impl_->Get(data);
