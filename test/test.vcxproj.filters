@@ -12,8 +12,6 @@
     <ClCompile Include="03.stl.cpp" />
     <ClCompile Include="01.basic.cpp" />
     <ClCompile Include="00.quick_example.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="02.custom_type.cpp" />
+    <ClCompile Include="02.custom_type.cpp" />
   </ItemGroup>
 </Project>

@@ -3,18 +3,35 @@
 struct BaseType
 {
 	BaseType();
-	BaseType(int int_, float float_, short short_, unsigned int uint_, int64_t int64_);
 
 	int int_;
 	float float_;
 	short short_;
 	unsigned int uint_;
 	int64_t int64_;
+
+	bool operator==(const BaseType& rhs) const;
+	bool operator!=(const BaseType& rhs) const { return !operator==(rhs); }
 };
 
-struct MyStream : public BaseType {};
-struct MyArray : public BaseType {};
-struct MyMap : public BaseType {};
+struct MyStream : public BaseType
+{
+	MyStream() = default;
+	MyStream(int int_, float float_, short short_, unsigned int uint_, int64_t int64_);
+};
+
+struct MyArray : public BaseType
+{
+	MyArray() = default;
+	MyArray(int int_, float float_, short short_, unsigned int uint_, int64_t int64_);
+};
+
+struct MyMap : public BaseType
+{
+	MyMap() = default;
+	MyMap(int int_, float float_, short short_, unsigned int uint_, int64_t int64_);
+};
+
 
 namespace Msgpack {
 

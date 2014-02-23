@@ -8,17 +8,43 @@ BaseType::BaseType()
 , uint_(0U)
 , int64_(0LL)
 {
-
 }
 
-BaseType::BaseType(int int_, float float_, short short_, unsigned int uint_, int64_t int64_)
-: int_(int_)
-, float_(float_)
-, short_(short_)
-, uint_(uint_)
-, int64_(int64_)
+bool BaseType::operator==(const BaseType& rhs) const
 {
+	return this->int_ == rhs.int_
+		&& std::abs(this->float_ - rhs.float_) < 0.01f
+		&& this->short_ == rhs.short_
+		&& this->uint_ == rhs.uint_
+		&& this->int64_ == rhs.int64_;
+}
 
+
+MyStream::MyStream(int int_, float float_, short short_, unsigned int uint_, int64_t int64_)
+{
+	this->int_ = int_;
+	this->float_ = float_;
+	this->short_ = short_;
+	this->uint_ = uint_;
+	this->int64_ = int64_;
+}
+
+MyArray::MyArray(int int_, float float_, short short_, unsigned int uint_, int64_t int64_)
+{
+	this->int_ = int_;
+	this->float_ = float_;
+	this->short_ = short_;
+	this->uint_ = uint_;
+	this->int64_ = int64_;
+}
+
+MyMap::MyMap(int int_, float float_, short short_, unsigned int uint_, int64_t int64_)
+{
+	this->int_ = int_;
+	this->float_ = float_;
+	this->short_ = short_;
+	this->uint_ = uint_;
+	this->int64_ = int64_;
 }
 
 #include "msgpack_wrapper/Writer.h"
