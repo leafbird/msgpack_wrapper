@@ -5,7 +5,7 @@ wrapping interface of msgpack 0.5.8 - for VC++ 12.0(visual studio 2013).
 
 ### quick example
 
-see [test/00.basic.cpp](test/00.basic.cpp) and other test codes.
+see [test/00.quick_example.cpp](test/00.quick_example.cpp) and other test codes.
 
 ```cpp
 TEST(msgpack, quick_example)
