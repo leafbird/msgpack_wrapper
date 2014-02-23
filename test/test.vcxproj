@@ -83,14 +83,15 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="02.stl.cpp" />
+    <ClCompile Include="00.quick_example.cpp" />
+    <ClCompile Include="03.stl.cpp" />
     <ClCompile Include="CustomType.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="00.basic.cpp" />
+    <ClCompile Include="01.basic.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\gtest\gtest.vcxproj">
@@ -101,7 +102,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="01.custom_type.cpp" />
+    <None Include="02.custom_type.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

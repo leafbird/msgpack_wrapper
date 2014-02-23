@@ -13,6 +13,7 @@ public:
 	Impl(int reserve);
 
 	void write(const char* buf, unsigned int len);
+	std::ostream& ToString(std::ostream& stm) const;
 
 public:
 	size_t offset_;
@@ -30,6 +31,23 @@ void Buffer::Impl::write(const char* buf, unsigned int len)
 	::memcpy_s(&vecData_[offset_], offset_ + len, buf, len);
 
 	offset_ += len;
+}
+
+std::ostream& Buffer::Impl::ToString(std::ostream& stm) const
+{
+	msgpack::unpacker unpacker;
+	unpacker.reserve_buffer(vecData_.size());
+	::memcpy(unpacker.buffer(), &vecData_[0], vecData_.size());
+	unpacker.buffer_consumed(vecData_.size());
+
+	size_t count = 0;
+	msgpack::unpacked result;
+	while (unpacker.next(&result))
+	{
+		stm << count << ":" << result.get();
+	}
+
+	return stm;
 }
 
 
@@ -96,4 +114,15 @@ bool Buffer::empty() const
 	return impl_->vecData_.empty();
 }
 
+std::ostream& Buffer::ToString(std::ostream& stm) const
+{
+	return impl_->ToString(stm);
+}
+
+
 } // Msgpack
+
+std::ostream& operator<<(std::ostream& stm, const Msgpack::Buffer& buffer)
+{
+	return buffer.ToString(stm);
+}

@@ -27,9 +27,13 @@ public:
 	size_t size() const;
 	bool empty() const;
 
+	std::ostream& ToString(std::ostream& stm) const;
+
 private:
 	class Impl;
 	Impl* impl_;
 };
 
 } // Msgpack
+
+std::ostream& operator<<(std::ostream& stm, const Msgpack::Buffer& buffer);

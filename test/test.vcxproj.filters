@@ -8,11 +8,12 @@
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="00.basic.cpp" />
-    <ClCompile Include="02.stl.cpp" />
     <ClCompile Include="CustomType.cpp" />
+    <ClCompile Include="03.stl.cpp" />
+    <ClCompile Include="01.basic.cpp" />
+    <ClCompile Include="00.quick_example.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="01.custom_type.cpp" />
+    <None Include="02.custom_type.cpp" />
   </ItemGroup>
 </Project>
