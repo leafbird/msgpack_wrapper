@@ -2,7 +2,9 @@
 #include "MapReader.h"
 #include "Reader.h"
 
-class MapReader::Impl : public NonCopyable {
+namespace Msgpack {
+	
+class MapReader::Impl : public NonCopyable{
 public:
 	Impl(msgpack::object object, msgpack::zone* zone);
 
@@ -89,3 +91,5 @@ Reader& MapReader::ReadyValue(size_t index)
 {
 	return impl_->ReadyValue(index);
 }
+
+} // Msgpack

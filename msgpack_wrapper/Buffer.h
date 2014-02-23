@@ -1,5 +1,7 @@
 #pragma once
 
+namespace Msgpack {
+
 class Writer;
 class Reader;
 class ArrayReader;
@@ -29,3 +31,5 @@ private:
 	class Impl;
 	Impl* impl_;
 };
+
+} // Msgpack

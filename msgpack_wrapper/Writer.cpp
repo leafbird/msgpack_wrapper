@@ -2,6 +2,8 @@
 #include "Writer.h"
 #include "Buffer.h"
 
+namespace Msgpack {
+
 class Writer::Impl : public NonCopyable
 {
 public:
@@ -79,3 +81,4 @@ Writer& Writer::operator<<(const char* data)
 	return operator<<(std::string(data));
 }
 
+} // Msgpack

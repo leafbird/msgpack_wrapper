@@ -4,6 +4,8 @@
 #include "ArrayReader.h"
 #include "MapReader.h"
 
+namespace Msgpack {
+
 class Reader::Impl : public NonCopyable 
 {
 public:
@@ -138,3 +140,5 @@ Reader& Reader::operator>>(std::string& data)
 	impl_->Get(data);
 	return *this;
 }
+
+} // Msgpack

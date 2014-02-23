@@ -1,5 +1,7 @@
 #pragma once
 
+namespace Msgpack {
+	
 class Buffer;
 class ArrayReader;
 class MapReader;
@@ -35,3 +37,4 @@ private:
 	Impl* impl_;
 };
 
+} // Msgpack

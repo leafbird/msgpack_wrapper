@@ -5,6 +5,8 @@
 #include "msgpack_wrapper/Vector.h"
 #include "msgpack_wrapper/Map.h"
 
+using namespace Msgpack;
+
 TEST(msgpack, primitive_stl_vector)
 {
 	std::vector<int> src, dst;

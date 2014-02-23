@@ -2,6 +2,8 @@
 #include "ArrayReader.h"
 #include "Reader.h"
 
+namespace Msgpack {
+
 class ArrayReader::Impl
 {
 public:
@@ -60,3 +62,4 @@ size_t ArrayReader::size() const
 	return impl_->size();
 }
 
+} // Msgpack

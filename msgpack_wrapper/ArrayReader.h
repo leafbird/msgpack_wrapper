@@ -1,5 +1,7 @@
 #pragma once
 
+namespace Msgpack {
+
 class Reader;
 
 class ArrayReader : public NonCopyable
@@ -24,3 +26,4 @@ private:
 	Impl* impl_;
 };
 
+} // Msgpack

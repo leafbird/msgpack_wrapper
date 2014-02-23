@@ -3,6 +3,8 @@
 #include "Writer.h"
 #include "MapReader.h"
 
+namespace Msgpack {
+
 template <typename Key, typename Value>
 void Put(Writer& writer, const std::map<Key, Value>& data)
 {
@@ -25,3 +27,5 @@ void Get(Reader& reader, std::map<Key, Value>& data)
 		data.insert(val);
 	}
 }
+
+} // Msgpack

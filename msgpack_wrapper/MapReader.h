@@ -1,5 +1,7 @@
 #pragma once
 
+namespace Msgpack {
+	
 class Reader;
 
 class MapReader : public NonCopyable
@@ -31,3 +33,5 @@ private:
 	class Impl;
 	Impl* impl_;
 };
+
+} // Msgpack

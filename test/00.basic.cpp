@@ -5,6 +5,8 @@
 #include "msgpack_wrapper/ArrayReader.h"
 #include "msgpack_wrapper/MapReader.h"
 
+using namespace Msgpack;
+
 TEST(msgpack, empty)
 {
 	Buffer buffer;

@@ -5,6 +5,8 @@
 #include "ArrayReader.h"
 #include "MapReader.h"
 
+namespace Msgpack {
+
 class Buffer::Impl : public NonCopyable
 {
 public:
@@ -93,3 +95,5 @@ bool Buffer::empty() const
 {
 	return impl_->vecData_.empty();
 }
+
+} // Msgpack

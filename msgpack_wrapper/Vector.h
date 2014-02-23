@@ -3,6 +3,8 @@
 #include "Writer.h"
 #include "ArrayReader.h"
 
+namespace Msgpack {
+
 template <typename T>
 void Put(Writer& writer, const std::vector<T>& data)
 {
@@ -25,3 +27,5 @@ void Get(Reader& reader, std::vector<T>& data)
 		data.push_back(val);
 	}
 }
+
+} // Msgpack

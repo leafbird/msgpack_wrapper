@@ -1,5 +1,7 @@
 #pragma once
 
+namespace Msgpack {
+	
 class Buffer;
 
 class Writer : public NonCopyable
@@ -35,3 +37,4 @@ private:
 	Impl* impl_;
 };
 
+} // Msgpack
