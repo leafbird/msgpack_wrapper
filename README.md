@@ -9,4 +9,4 @@ see [test/00.basic.cpp](test/00.basic.cpp) code.
 
 ### other document
 
- [test]("doc/About Design.md")
+* [About Design](doc/About Design.md)
