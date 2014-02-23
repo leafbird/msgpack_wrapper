@@ -25,8 +25,8 @@ public:
 
 private:
 	Reader& Ready(const std::string& key);
-	Reader& ReadyKey(int index);
-	Reader& ReadyValue(int index);
+	Reader& ReadyKey(size_t index);
+	Reader& ReadyValue(size_t index);
 
 	class Impl;
 	Impl* impl_;

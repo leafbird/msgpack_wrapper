@@ -3,10 +3,16 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="CustomType.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="test1.cpp" />
+    <ClCompile Include="00.basic.cpp" />
+    <ClCompile Include="02.stl.cpp" />
+    <ClCompile Include="CustomType.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="01.custom_type.cpp" />
   </ItemGroup>
 </Project>

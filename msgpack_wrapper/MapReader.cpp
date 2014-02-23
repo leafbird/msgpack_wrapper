@@ -7,8 +7,8 @@ public:
 	Impl(msgpack::object object, msgpack::zone* zone);
 
 	Reader& Ready(const std::string& key);
-	Reader& ReadyKey(int index);
-	Reader& ReadyValue(int index);
+	Reader& ReadyKey(size_t index);
+	Reader& ReadyValue(size_t index);
 
 public:
 	msgpack::object object_;
@@ -41,8 +41,21 @@ Reader& MapReader::Impl::Ready(const std::string& key)
 	return reader_;
 }
 
-Reader& ReadyKey(int index);
-Reader& ReadyValue(int index);
+Reader& MapReader::Impl::ReadyKey(size_t index)
+{
+	assert(index < object_.via.map.size);
+	msgpack::object_kv* p = object_.via.map.ptr + index;
+	reader_.set_object(p->key);
+	return reader_;
+}
+
+Reader& MapReader::Impl::ReadyValue(size_t index)
+{
+	assert(index < object_.via.map.size);
+	msgpack::object_kv* p = object_.via.map.ptr + index;
+	reader_.set_object(p->val);
+	return reader_;
+}
 
 // ------------------------------------------------------------------------------
 
@@ -67,12 +80,12 @@ size_t MapReader::size() const
 	return impl_->object_.via.map.size;
 }
 
-Reader& MapReader::ReadyKey(int index)
+Reader& MapReader::ReadyKey(size_t index)
 {
 	return impl_->ReadyKey(index);
 }
 
-Reader& MapReader::ReadyValue(int index)
+Reader& MapReader::ReadyValue(size_t index)
 {
 	return impl_->ReadyValue(index);
 }
