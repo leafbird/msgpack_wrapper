@@ -15,6 +15,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Util", "Util", "{25C8A857-F
 		Util\Util.h = Util\Util.h
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{65E76ABA-9A5E-47E8-8F76-07AFAF44F3C2}"
+	ProjectSection(SolutionItems) = preProject
+		doc\About Design.md = doc\About Design.md
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
