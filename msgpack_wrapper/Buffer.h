@@ -13,7 +13,7 @@ public:
 	Buffer(int reserve = 1024);
 	virtual ~Buffer();
 
-	void write(const char* buf, unsigned int len);
+	void write(const char* buf, size_t len);
 
 	Writer Put();
 	Writer PutArray(size_t size);

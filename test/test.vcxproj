@@ -85,7 +85,8 @@
   <ItemGroup>
     <ClCompile Include="00.quick_example.cpp" />
     <ClCompile Include="02.basic_stl.cpp" />
-    <ClCompile Include="04.custom_type_stl.cpp" />
+    <ClCompile Include="03.string.cpp" />
+    <ClCompile Include="05.custom_type_stl.cpp" />
     <ClCompile Include="CustomType.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -103,7 +104,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="03.custom_type.cpp" />
+    <ClCompile Include="04.custom_type.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

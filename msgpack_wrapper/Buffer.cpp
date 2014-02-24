@@ -12,7 +12,7 @@ class Buffer::Impl : public NonCopyable
 public:
 	Impl(int reserve);
 
-	void write(const char* buf, unsigned int len);
+	void write(const char* buf, size_t len);
 	std::ostream& ToString(std::ostream& stm) const;
 
 public:
@@ -25,8 +25,11 @@ Buffer::Impl::Impl(int reserve) : offset_(0LL)
 	vecData_.reserve(reserve);
 }
 
-void Buffer::Impl::write(const char* buf, unsigned int len)
+void Buffer::Impl::write(const char* buf, size_t len)
 {
+	if (len == 0)
+		return;
+
 	vecData_.resize(offset_ + len);
 	::memcpy_s(&vecData_[offset_], offset_ + len, buf, len);
 
@@ -63,7 +66,7 @@ Buffer::~Buffer()
 	Delete(impl_);
 }
 
-void Buffer::write(const char* buf, unsigned int len)
+void Buffer::write(const char* buf, size_t len)
 {
 	impl_->write(buf, len);
 }

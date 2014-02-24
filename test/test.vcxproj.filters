@@ -12,7 +12,8 @@
     <ClCompile Include="01.basic.cpp" />
     <ClCompile Include="00.quick_example.cpp" />
     <ClCompile Include="02.basic_stl.cpp" />
-    <ClCompile Include="03.custom_type.cpp" />
-    <ClCompile Include="04.custom_type_stl.cpp" />
+    <ClCompile Include="05.custom_type_stl.cpp" />
+    <ClCompile Include="04.custom_type.cpp" />
+    <ClCompile Include="03.string.cpp" />
   </ItemGroup>
 </Project>
