@@ -19,7 +19,6 @@ TEST(msgpack, raw_string)
 
 TEST(msgpack, empty_string)
 {
-	// msgpack/src/string.hpp 자체의 버그가 있다. 지금은 돌아가도록 직접 수정해둠.
 	const char* src = "";
 	std::string dst("hello world");
 
