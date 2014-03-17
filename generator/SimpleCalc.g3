@@ -1,0 +1,35 @@
+grammar SimpleCalc;
+ 
+options {
+    language=CSharp3;
+}
+ 
+tokens {
+    PLUS    = '+' ;
+    MINUS   = '-' ;
+    MULT    = '*' ;
+    DIV = '/' ;
+}
+ 
+@lexer::namespace { AntlrTest }
+@parser::namespace { AntlrTest }
+ 
+/*
+ * Parsing rules
+ */
+ 
+public expr : term ( ( PLUS | MINUS )  term )* ;
+ 
+term    : factor ( ( MULT | DIV ) factor )* ;
+ 
+factor  : NUMBER ;
+ 
+/*
+ * Lexing rules
+ */
+ 
+NUMBER  : (DIGIT)+ ;
+ 
+WHITESPACE : ( '\t' | ' ' | '\r' | '\n'| '\u000C' )+    { $channel = Hidden; } ;
+ 
+fragment DIGIT  : '0'..'9' ;
