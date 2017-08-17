@@ -47,5 +47,5 @@ see [test/00.quick_example.cpp](test/00.quick_example.cpp) and other test codes.
 
 ### other document
 
-* [About Design](doc/About Design.md)
+* [About Design](doc/About%20Design.md)
 * ...and others...
